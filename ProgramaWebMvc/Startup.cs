@@ -37,7 +37,7 @@ namespace ProgramaWebMvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<ProgramaWebMvcContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ProgramaWebMvcContext")));
+                    options.UseMySql(Configuration.GetConnectionString("ProgramaWebMvcContext"), builder => builder.MigrationsAssembly("ProgramaWebMvc")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
