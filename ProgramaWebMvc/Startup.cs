@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProgramaWebMvc.Data;
+using ProgramaWebMvc.Services;
 
 namespace ProgramaWebMvc
 {
@@ -39,7 +40,8 @@ namespace ProgramaWebMvc
             services.AddDbContext<ProgramaWebMvcContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("ProgramaWebMvcContext"), builder => builder.MigrationsAssembly("ProgramaWebMvc")));
 
-            services.AddScoped<SeedingService>();   
+            services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
